@@ -1,0 +1,50 @@
+# Appended fragment from meta-mender-community/meta-mender-intel/templates
+MACHINE ?= "jetson-tx2"
+# meta-tegra and tegraflash requirements
+IMAGE_CLASSES += "image_types_tegra"
+IMAGE_FSTYPES += "tegraflash"
+
+MENDER_ARTIFACT_NAME = "release-1"
+INHERIT += "mender-full"
+# Yocto Sumo (2.5) or newer mender settings
+PREFERRED_VERSION_pn-mender = "1.1.%"
+PREFERRED_VERSION_pn-mender-artifact = "2.0.%"
+PREFERRED_VERSION_pn-mender-artifact-native = "2.0.%"
+ARTIFACTIMG_FSTYPE = "ext4"
+MENDER_STORAGE_DEVICE = "/dev/mmcblk0"
+MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
+# Generate dataimg for use with tegraflash
+IMAGE_TYPEDEP_tegraflash += " dataimg"
+IMAGE_FSTYPES += "dataimg"
+# Additional mender settings, See discussion in VS-68
+EXTRA_IMAGECMD_ext4 = " -b 2048"
+PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils-tegra"
+PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils-tegra"
+# Use 3G rootfs max size, setup for 4 GB total size
+# TODO: finalize partition sizes later
+IMAGE_ROOTFS_MAXSIZE = "3000000000"
+MENDER_STORAGE_TOTAL_SIZE_MB = "4000"
+# Note: this isn't really a boot file, just put it here to keep the mender build from
+# complaining about empty IMAGE_BOOT_FILES.  We won't use the full image anyway, just the mender file
+IMAGE_BOOT_FILES = "u-boot-dtb.bin"
+# Mender customizations to support jetson tx2.  This needs to match up with flash_l4t_t186.custom.xml scheme
+# We don't use a boot partition
+MENDER_BOOT_PART = ""
+MENDER_DATA_PART = "${MENDER_STORAGE_DEVICE_BASE}30"
+MENDER_ROOTFS_PART_A = "${MENDER_STORAGE_DEVICE_BASE}1"
+MENDER_ROOTFS_PART_B = "${MENDER_STORAGE_DEVICE_BASE}29"
+# See setting in meta-tegra/conf/machine
+ROOTFSPART_SIZE = "${IMAGE_ROOTFS_MAXSIZE}"
+# See setting in https://github.com/madisongh/meta-tegra/blob/ba572dad0fe5bb01f1655115f60fca07e20bf16c/recipes-kernel/linux/linux-tegra_4.4.bb#L25
+# This should probably be moved into a bbappends file
+KERNEL_ROOTSPEC = "root=/dev/mmcblk\${devnum}p\${distro_bootpart} rw rootwait"
+# Assumes a default partition layout for jetson with partition 28 reserved for uboot environment
+# At LBA 0x68b170.  Use mmc part command in u-boot to find partition start
+MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET = "3512918016"
+MENDER_RESERVED_SPACE_BOOTLOADER_DATA = "262144"
+# Use a 4096 byte alignment for support of tegraflash scheme and default partition locations
+MENDER_PARTITION_ALIGNMENT = "4096"
+DISTRO_FEATURES_append = " systemd"
+VIRTUAL-RUNTIME_init_manager = " systemd"
+DISTRO_FEATURES_BACKFILL_CONSIDERED = " sysvinit"
+VIRTUAL-RUNTIME_initscripts = ""
