@@ -1,7 +1,7 @@
 # Appended fragment from meta-mender-community/meta-mender-intel/templates
 MACHINE ?= "jetson-tx2"
 # meta-tegra and tegraflash requirements
-IMAGE_CLASSES += "image_types_tegra"
+IMAGE_CLASSES += "image_types_mender_tegra"
 IMAGE_FSTYPES += "tegraflash"
 
 MENDER_ARTIFACT_NAME = "release-1"
@@ -35,9 +35,6 @@ MENDER_ROOTFS_PART_A = "${MENDER_STORAGE_DEVICE_BASE}1"
 MENDER_ROOTFS_PART_B = "${MENDER_STORAGE_DEVICE_BASE}29"
 # See setting in meta-tegra/conf/machine
 ROOTFSPART_SIZE = "${IMAGE_ROOTFS_MAXSIZE}"
-# See setting in https://github.com/madisongh/meta-tegra/blob/ba572dad0fe5bb01f1655115f60fca07e20bf16c/recipes-kernel/linux/linux-tegra_4.4.bb#L25
-# This should probably be moved into a bbappends file
-KERNEL_ROOTSPEC = "root=/dev/mmcblk\${devnum}p\${distro_bootpart} rw rootwait"
 # Assumes a default partition layout for jetson with partition 28 reserved for uboot environment
 # At LBA 0x68b170.  Use mmc part command in u-boot to find partition start
 MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET = "3512918016"
