@@ -8,10 +8,6 @@
   <project name="poky" remote="yocto" revision="sumo" path="sources/poky"/>
   <project name="meta-tegra" remote="trellis" revision="add-data-partition-support" path="sources/meta-tegra" />
 
-  <project name="meta-mender-community" remote="trellis" revision="add-tegra" path="sources/meta-mender-community">
-    <copyfile dest="deploy.sh" src="sources/meta-mender-community/meta-mender-tegra/deploy.sh"/>
-  </project>
-
   <include name="scripts/mender.xml"/>
 
   </manifest>
