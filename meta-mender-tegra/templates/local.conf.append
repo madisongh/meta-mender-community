@@ -36,7 +36,9 @@ MENDER_ROOTFS_PART_B = "${MENDER_STORAGE_DEVICE_BASE}29"
 # See setting in meta-tegra/conf/machine
 ROOTFSPART_SIZE = "${IMAGE_ROOTFS_MAXSIZE}"
 # Assumes a default partition layout for jetson with partition 28 reserved for uboot environment
-# At LBA 0x68b170.  Use mmc part command in u-boot to find partition start
+# At LBA 0x68b170.  0x68b170 = 6861168 blocks and 6861168 blocks *512 bytes/block = 3512918016 byte offset
+# This will need to be modified whenever flash layout changes
+# Use mmc part command in u-boot to find partition start for any new platforms
 MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET = "3512918016"
 MENDER_RESERVED_SPACE_BOOTLOADER_DATA = "262144"
 # Use a 4096 byte alignment for support of tegraflash scheme and default partition locations
@@ -45,3 +47,6 @@ DISTRO_FEATURES_append = " systemd"
 VIRTUAL-RUNTIME_init_manager = " systemd"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = " sysvinit"
 VIRTUAL-RUNTIME_initscripts = ""
+
+# Not required, gives you access via SSH by default
+IMAGE_FEATURES += " ssh-server-openssh"
