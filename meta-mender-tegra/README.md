@@ -38,11 +38,11 @@ To deploy to the target using tegraflash zip file.
 ### Testing Local Mender Deployment
 After running the build, scp the mender target to your host using the default root account and no password:
 ```
-scp build/tmp/deploy/images/jetson-tx2/core-image-base.mender root@device-ip-address:/tmp/
+scp build/tmp/deploy/images/jetson-tx2/core-image-base-jetson-tx2.mender root@device-ip-address:/tmp/
 ```
 Then ssh into the target and run the mender -rootfs command followed by reboot
 ```
-mender -rootfs /tmp/core-image-minimal-jetson-tx2.mender
+mender -rootfs /tmp/core-image-base-jetson-tx2.mender
 reboot
 ```
 You can also use the Mender [integration checklist](https://docs.mender.io/1.6/devices/integrating-with-u-boot/integration-checklist) to verify each component of your mender installation is working properly.
