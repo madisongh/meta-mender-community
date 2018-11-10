@@ -9,6 +9,7 @@ Supported and Tested Boards:
 
 ### Build
 Download the source:
+
     $ mkdir mender-tegra
     $ cd mender-tegra
     $ repo init \
