@@ -3,10 +3,10 @@
   <default sync-j="4" revision="sumo"/>
 
   <remote fetch="git://git.yoctoproject.org"        name="yocto"/>
-  <remote fetch="https://github.com/Trellis-Logic"        name="trellis"/>
+  <remote fetch="https://github.com/madisongh"        name="madisongh"/>
 
   <project name="poky" remote="yocto" revision="sumo" path="sources/poky"/>
-  <project name="meta-tegra" remote="trellis" revision="add-data-partition-support" path="sources/meta-tegra" />
+  <project name="meta-tegra" remote="madisongh" revision="sumo" path="sources/meta-tegra" />
 
   <include name="scripts/mender.xml"/>
 
