@@ -4,15 +4,7 @@ MACHINE ?= "jetson-tx2"
 IMAGE_CLASSES += "image_types_mender_tegra"
 IMAGE_FSTYPES += "tegraflash"
 
-MENDER_ARTIFACT_NAME = "release-1"
-INHERIT += "mender-full"
-# Yocto Sumo (2.5) or newer mender settings
-PREFERRED_VERSION_pn-mender = "1.1.%"
-PREFERRED_VERSION_pn-mender-artifact = "2.0.%"
-PREFERRED_VERSION_pn-mender-artifact-native = "2.0.%"
 ARTIFACTIMG_FSTYPE = "ext4"
-MENDER_STORAGE_DEVICE = "/dev/mmcblk0"
-MENDER_FEATURES_ENABLE_append = " mender-uboot mender-image-sd"
 # Generate dataimg for use with tegraflash
 IMAGE_TYPEDEP_tegraflash += " dataimg"
 IMAGE_FSTYPES += "dataimg"
