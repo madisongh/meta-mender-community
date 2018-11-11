@@ -1,4 +1,4 @@
-# Appended fragment from meta-mender-community/meta-mender-intel/templates
+# Appended fragment from meta-mender-community/meta-mender-tegra/templates
 MACHINE ?= "jetson-tx2"
 # meta-tegra and tegraflash requirements
 IMAGE_CLASSES += "image_types_mender_tegra"
