@@ -2,7 +2,7 @@ inherit image_types_tegra
 
 DATAFILE ?= "${IMAGE_BASENAME}-${MACHINE}.dataimg"
 
-tegraflash_custom_pre_append() {
+tegraflash_custom_pre() {
     ln -s ${DEPLOY_DIR_IMAGE}/${DATAFILE} ./${DATAFILE}
 }
 
