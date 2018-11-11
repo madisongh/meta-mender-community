@@ -12,10 +12,6 @@ IMAGE_FSTYPES += "dataimg"
 EXTRA_IMAGECMD_ext4 = " -b 2048"
 PREFERRED_PROVIDER_u-boot-fw-utils = "u-boot-fw-utils-tegra"
 PREFERRED_RPROVIDER_u-boot-fw-utils = "u-boot-fw-utils-tegra"
-# Use 3G rootfs max size, setup for 4 GB total size
-# TODO: finalize partition sizes later
-IMAGE_ROOTFS_MAXSIZE = "3000000000"
-MENDER_STORAGE_TOTAL_SIZE_MB = "4000"
 # Note: this isn't really a boot file, just put it here to keep the mender build from
 # complaining about empty IMAGE_BOOT_FILES.  We won't use the full image anyway, just the mender file
 IMAGE_BOOT_FILES = "u-boot-dtb.bin"
