@@ -31,10 +31,5 @@ MENDER_UBOOT_ENV_STORAGE_DEVICE_OFFSET = "3512918016"
 MENDER_RESERVED_SPACE_BOOTLOADER_DATA = "262144"
 # Use a 4096 byte alignment for support of tegraflash scheme and default partition locations
 MENDER_PARTITION_ALIGNMENT = "4096"
-DISTRO_FEATURES_append = " systemd"
-VIRTUAL-RUNTIME_init_manager = " systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED = " sysvinit"
-VIRTUAL-RUNTIME_initscripts = ""
-
 # Not required, gives you access via SSH by default
 IMAGE_FEATURES += " ssh-server-openssh"
