@@ -26,9 +26,9 @@ targets=(
     "renesas"
     "rockchip"
     "sunxi"
+    "tegra"
     "up"
-    "variscite"
-    "tegra")
+    "variscite")
 
 for i in ${targets[@]}
 do
