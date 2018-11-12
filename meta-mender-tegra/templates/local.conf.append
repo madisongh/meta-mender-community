@@ -22,7 +22,9 @@ MENDER_DATA_PART = "${MENDER_STORAGE_DEVICE_BASE}30"
 MENDER_ROOTFS_PART_A = "${MENDER_STORAGE_DEVICE_BASE}1"
 MENDER_ROOTFS_PART_B = "${MENDER_STORAGE_DEVICE_BASE}29"
 # See setting in meta-tegra/conf/machine
-ROOTFSPART_SIZE = "${IMAGE_ROOTFS_MAXSIZE}"
+# Need to oversize this to make sure IMAGE_ROOTFS_SIZE is less than this, however any change
+# will mean you need to change the offsets below as well.
+ROOTFSPART_SIZE = "3000000000"
 # Assumes a default partition layout for jetson with partition 28 reserved for uboot environment
 # At LBA 0x68b170.  0x68b170 = 6861168 blocks and 6861168 blocks *512 bytes/block = 3512918016 byte offset
 # This will need to be modified whenever flash layout changes
