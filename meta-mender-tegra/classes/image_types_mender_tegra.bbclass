@@ -3,7 +3,8 @@ inherit image_types_tegra
 DATAFILE ?= "${IMAGE_BASENAME}-${MACHINE}.dataimg"
 
 tegraflash_custom_pre() {
-    ln -s ${DEPLOY_DIR_IMAGE}/${DATAFILE} ./${DATAFILE}
+    # Target needs to match install target in IMAGE_CMD_dataimg
+    ln -s ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.dataimg ./${DATAFILE}
 }
 
 tegraflash_create_flash_config_append() {
