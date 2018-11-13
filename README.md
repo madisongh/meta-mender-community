@@ -75,7 +75,6 @@ To use this layer:
            -u https://github.com/mendersoftware/meta-mender-community \
            -m meta-mender-<vendor/soc name>/scripts/manifest-<vendor/soc name>.xml \
            -b sumo
-    $ repo sync
 ```
 
 2. Setup environment:
