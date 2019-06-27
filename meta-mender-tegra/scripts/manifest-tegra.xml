@@ -5,8 +5,8 @@
   <remote fetch="git://git.yoctoproject.org"        name="yocto"/>
   <remote fetch="https://github.com/madisongh"        name="madisongh"/>
 
-  <project name="poky" remote="yocto" revision="thud" path="sources/poky"/>
-  <project name="meta-tegra" remote="madisongh" revision="thud" path="sources/meta-tegra" />
+  <project name="poky" remote="yocto" revision="warrior" path="sources/poky"/>
+  <project name="meta-tegra" remote="madisongh" revision="warrior" path="sources/meta-tegra" />
 
   <include name="scripts/mender.xml"/>
 
