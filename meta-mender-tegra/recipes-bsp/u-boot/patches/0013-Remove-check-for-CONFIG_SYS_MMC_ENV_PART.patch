@@ -1,0 +1,27 @@
+From de74595bf1460e450368b73e78163fca49afd5ba Mon Sep 17 00:00:00 2001
+From: Dan Walkes <danwalkes@trellis-logic.com>
+Date: Thu, 1 Aug 2019 08:06:43 -0600
+Subject: [PATCH] Remove check for CONFIG_SYS_MMC_ENV_PART
+
+To allow specifying other partitions for mmc environment storage.
+---
+ include/config_mender.h | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/include/config_mender.h b/include/config_mender.h
+index 3836a6ddd4..69a526805d 100644
+--- a/include/config_mender.h
++++ b/include/config_mender.h
+@@ -75,11 +75,7 @@
+ # else
+ #  define CONFIG_SYS_MMC_ENV_DEV   MENDER_UBOOT_STORAGE_DEVICE
+ # endif
+-# ifdef CONFIG_SYS_MMC_ENV_PART
+-#  if CONFIG_SYS_MMC_ENV_PART != 0
+-#   error CONFIG_SYS_MMC_ENV_PART need to be set to 0. Make sure that: 1) All the instructions at docs.mender.io/devices/integrating-with-u-boot have been followed. 2) All required layers are included in bblayers.conf, including any board specific layers such as meta-mender-<board>
+-#  endif
+-# else
++# ifndef CONFIG_SYS_MMC_ENV_PART
+    /* Use MMC partition zero to select whole user area of memory card. */
+ #  define CONFIG_SYS_MMC_ENV_PART  0
+ # endif
