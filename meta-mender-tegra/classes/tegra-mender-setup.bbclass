@@ -32,9 +32,9 @@ MENDER_PARTITIONING_OVERHEAD_KB = "0"
 MENDER_BOOT_PART = ""
 MENDER_BOOT_PART_SIZE_MB = "0"
 
-# Use this variable to adjust your total rootfs size
+# Use this variable to adjust your total rootfs size.  Rootfs size will be approximately 1/2 this value
 # The default is enough to build core-image-base
-MENDER_STORAGE_TOTAL_SIZE_MB ??="3000"
+MENDER_STORAGE_TOTAL_SIZE_MB ??="6000"
 
 # Use the mmcblk0boot1 partition for uboot environment (partition 2 in uboot)
 MENDER_UBOOT_CONFIG_SYS_MMC_ENV_PART = "2"
