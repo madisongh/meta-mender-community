@@ -28,3 +28,6 @@ Build
 
     $ bitbake core-image-base
 
+## Customizing Image Rootfs Size
+
+To customize the size reserved for your rootfs, add variable MENDER_STORAGE_TOTAL_SIZE_MB to your build/local.conf or image and define with a value which is twice the size of your desired rootfs in MB.
