@@ -10,4 +10,4 @@ do_install_append() {
 FILES_${PN} += "/opt/ota_package/bl_update_payload_current"
 FILES_${PN} += "/opt/ota_package/bl_update_payload"
 RDEPENDS_${PN} += "tegra186-redundant-boot"
-IMAGE_INSTALL_append = " tegra-state-scripts"
+RDEPENDS_${PN} += "tegra-state-scripts"
