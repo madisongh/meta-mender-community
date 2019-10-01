@@ -148,7 +148,7 @@
         <partition name="reserved" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 6050846 </size>
+            <size> 5002240 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <align_boundary> 4096 </align_boundary>
             <allocation_attribute> 0x8 </allocation_attribute>
@@ -161,6 +161,15 @@
             <file_system_attribute> 0 </file_system_attribute>
             <align_boundary> 4096 </align_boundary>
             <allocation_attribute> 0x808 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+        </partition>
+        <partition name="reserved_unknown" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 1045504 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <align_boundary> 4096 </align_boundary>
+            <allocation_attribute> 0x8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
         </partition>
         <partition name="secondary_gpt" type="secondary_gpt">
