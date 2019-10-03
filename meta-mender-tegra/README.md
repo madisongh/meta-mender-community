@@ -39,6 +39,7 @@ The warrior branch adds several changes which:
 environment storage location.  See [this conversation](https://hub.mender.io/t/u-boot-environment-located-past-0xffffffff-fails/861/9) on mender hub.
 2) Support [redundant boot](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%2520Linux%2520Driver%2520Package%2520Development%2520Guide%2Fbootloader_update.html%23) for bootloader components using
 nvidia tools and images.  See [this issue](https://github.com/madisongh/meta-tegra/issues/178) for background.
+* The redundant boot components are upgraded through a mender reboot state script.  This means the upgrades are not performed during manual install.  To perform reboot state script updates using manual install, the mender-install-manual script is provided. Run this script with the same arguments you would provide to mender -install.  The system will include reboot state script content after performing the update.
 
 Both of these changes above require changes to the u-boot environment location, which are outlined in the mender hub conversation linked above and also 
 [this post](https://devtalk.nvidia.com/default/topic/1063652/jetson-tx2/mmcblk0boot1-usage-at-address-4177408-and-u-boot-parameter-storage-space-availability/) on the nvidia forum about my observation related to mmcblkboot1.  
