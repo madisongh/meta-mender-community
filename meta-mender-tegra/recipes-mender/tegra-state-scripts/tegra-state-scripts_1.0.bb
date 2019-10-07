@@ -1,12 +1,11 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI = "file://redundant-boot-reboot-state-script;subdir=${PN}-${PV} \
-          file://LICENSE;subdir=${PN}-${PV} \
           file://mender-install-manual;subdir=${PN}-${PV} \
           "
 
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=e3fc50a88d0a364313df4b21ef20c29e"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/Apache-2.0;md5=89aea4e17d99a7cacdbeed46a0096b10"
 
 inherit mender-state-scripts
 
