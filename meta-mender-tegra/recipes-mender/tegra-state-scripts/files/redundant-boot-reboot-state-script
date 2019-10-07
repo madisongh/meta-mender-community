@@ -19,11 +19,7 @@ rm /opt/ota_package/bl_update_payload
 ln -s /opt/ota_package/bl_update_payload_new /opt/ota_package/bl_update_payload
 nv_update_engine --install 1>&2
 # Should never get here, nv_update_engine will reboot on its own after successful update
-rc=$?
-if [ ${rc} -ne 0 ]; then
-    echo "A failure occurred in nv_update_engine (rc ${rc}).. nv_update_engine did not reboot" >&2
-    rm /opt/ota_package/bl_update_payload
-    ln -s /opt/ota_package/bl_update_payload_current /opt/ota_package/bl_update_payload
-    exit 1
-fi
-exit 0
+echo "A failure occurred in nv_update_engine (rc ${rc}).. nv_update_engine did not reboot" >&2
+rm /opt/ota_package/bl_update_payload
+ln -s /opt/ota_package/bl_update_payload_current /opt/ota_package/bl_update_payload
+exit 1
