@@ -7,5 +7,5 @@ DHCP=v4
 # See https://github.com/madisongh/meta-tegra/issues/146
 LLDP=0
 
-[DHCPv4]
+[DHCP]
 UseHostname=false
