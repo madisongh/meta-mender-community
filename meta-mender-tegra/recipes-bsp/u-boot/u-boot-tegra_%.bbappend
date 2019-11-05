@@ -10,3 +10,5 @@ do_install_append() {
 do_install[depends] += "u-boot-bup-payload:do_deploy"
 FILES_${PN} += "/opt/ota_package/bl_update_payload_current"
 FILES_${PN} += "/opt/ota_package/bl_update_payload"
+RDEPENDS_${PN} += "tegra186-redundant-boot"
+RDEPENDS_${PN} += "tegra-state-scripts"
